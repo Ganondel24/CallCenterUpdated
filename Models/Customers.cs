@@ -8,6 +8,7 @@ namespace CallCenter.Models
     {
         [Key]
         public int CustomerId { get; set; }
+        //Test
         public string CustomerName { get; set; }
 
         public string CustomerAFM { get; set; }
