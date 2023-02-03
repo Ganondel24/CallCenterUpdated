@@ -1,0 +1,96 @@
+﻿@model IEnumerable<CallCenter.Models.Customers>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+@*<button onclick="location.href='@Url.Action("Create")'">Create New</button>*@
+
+<br />
+<label for="inputField">Benefit Number :</label>
+<input type="text" id="inputBenefitNumberField" />
+<br />
+<br />
+<label for="inputField">ΑΦΜ :</label>
+<input type="text" id="inputAFMField" />
+
+<br />
+<button onclick="submitForm()">Click for search</button>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerAFM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BenefitNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustmerAddress)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerAFM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BenefitNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustmerAddress)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CustomerId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.CustomerId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CustomerId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<script>
+    function submitForm() {
+      var inputBenefitNumberField = document.getElementById("inputBenefitNumberField").value;
+      var inputAFMField = document.getElementById("inputAFMField").value;
+
+
+      if(inputBenefitNumberField == "" && inputAFMField != "")
+      {
+       location.href='@Url.Action("Index", new {AFMincomingValue = "INPUT_VALUE" })'.replace("INPUT_VALUE", inputAFMField);
+      }
+      else if(inputBenefitNumberField != "" && inputAFMField == "")
+      {
+      location.href='@Url.Action("Index", new {BenefitNumberIncomingValue = "INPUT_VALUE" })'.replace("INPUT_VALUE", inputBenefitNumberField);
+      }
+      else
+      {
+          location.href='@Url.Action("Index")';
+      }
+      
+    }
+</script>
