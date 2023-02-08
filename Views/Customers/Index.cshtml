@@ -4,22 +4,23 @@
     ViewData["Title"] = "Index";
 }
 
+
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Create New</a> 
 </p>
 @*<button onclick="location.href='@Url.Action("Create")'">Create New</button>*@
 
 <br />
+<p>
 <label for="inputField">Benefit Number :</label>
-<input type="text" id="inputBenefitNumberField" />
-<br />
-<br />
+<input type="text" id="inputBenefitNumberField" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <label for="inputField">ΑΦΜ :</label>
 <input type="text" id="inputAFMField" />
+</p>
+ <br />
 
-<br />
 <button onclick="submitForm()">Click for search</button>
 
 <table class="table">
@@ -63,8 +64,8 @@
                     @Html.DisplayFor(modelItem => item.CustmerAddress)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.CustomerId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.CustomerId">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@item.CustomerId">Edit</a> 
+                    <a asp-action="Details" asp-route-id="@item.CustomerId">Details</a> 
                     <a asp-action="Delete" asp-route-id="@item.CustomerId">Delete</a>
                 </td>
             </tr>

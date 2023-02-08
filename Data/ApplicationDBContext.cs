@@ -17,6 +17,10 @@ namespace CallCenter.Data
         }
 
         public virtual DbSet<Customers> Customers { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
+
+        public virtual DbSet<ClientApplication> ClientApplication { get; set; }
+
 
     }
 }
